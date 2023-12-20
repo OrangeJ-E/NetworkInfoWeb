@@ -3,23 +3,27 @@ package org.network.networkinfo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Address")
+@Table(name = "address")  // 确保表名与数据库中的表名匹配
 public class Address {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;  // 数据库表的主键
 
-    @Column(name = "wlan_mac_address")
-    private String wlanMacAddress;
+    @Column(name = "wlan_mac_address", nullable = false, unique = true)
+    private String wlanMacAddress;  // WLAN MAC 地址
 
     @Column(name = "host_name")
-    private String hostName;
+    private String hostName;  // 主机名
 
     @Column(name = "ip_address")
-    private String ipAddress;
+    private String ipAddress;  // IP 地址
 
     // 构造函数
+    public Address() {
+    }
 
+    // 为每个字段提供 getter 和 setter 方法
     public Long getId() {
         return id;
     }

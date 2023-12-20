@@ -8,7 +8,9 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.Enumeration;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 @Service
 public class NetworkInfoRetriever {
 
@@ -64,7 +66,13 @@ public class NetworkInfoRetriever {
     private String getHostName() throws Exception {
         return InetAddress.getLocalHost().getHostName();
     }
+    private static final Logger logger = LoggerFactory.getLogger(NetworkInfoRetriever.class);
 
+    public void someMethod() {
+        logger.info("Some informational message");
+        logger.debug("Debug message");
+        logger.error("Error message", new RuntimeException("Error"));
+    }
     private String getIpAddress() throws Exception {
         Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
         while (interfaces.hasMoreElements()) {
