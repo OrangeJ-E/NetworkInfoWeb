@@ -1,5 +1,6 @@
 package org.network.networkinfo.service;
 
+import org.springframework.stereotype.Service;
 public class NetworkInfo {
     private String wlanMacAddress;
     private String hostName;
