@@ -10,12 +10,14 @@ import java.util.Collections;
 import java.util.Enumeration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+
 @Service
 public class NetworkInfoRetriever {
-
+    private final AddressRepository addressRepository;
     @Autowired
-    private AddressRepository addressRepository;
+    public NetworkInfoRetriever(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
 
     public NetworkInfo retrieveNetworkInfo() throws Exception {
         String wlanMacAddress = getWLANMacAddress();

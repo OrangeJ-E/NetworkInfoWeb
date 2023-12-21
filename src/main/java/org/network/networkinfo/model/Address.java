@@ -9,7 +9,7 @@ import javax.persistence.Column;
 
 
 @Entity
-@Table(name = "address")  // 确保表名与数据库中的表名匹配
+@Table(name = "Address")  // 确保表名与数据库中的表名匹配
 public class Address {
 
     @Id

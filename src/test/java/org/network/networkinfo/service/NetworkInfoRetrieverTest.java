@@ -10,7 +10,7 @@ import org.network.networkinfo.repository.AddressRepository;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import org.network.networkinfo.service.NetworkInfo;
+
 public class NetworkInfoRetrieverTest {
 
     @Mock
@@ -26,10 +26,10 @@ public class NetworkInfoRetrieverTest {
 @Test
     void testWriteToDatabase() {
         NetworkInfo testNetworkInfo = new NetworkInfo("00：11：22：33：44：55","HostName","192.168.1.1");
-        Address testAddress = new Address();  // 创建 Address 对象
+        Object testObject = new Address();  // 创建 Address 对象
         // 设置 Address 对象的属性
 
-        when(addressRepository.save(any(Address.class))).thenReturn(testAddress);
+        when(addressRepository.save(any(Address.class))).thenReturn((Address) testObject);
 
         // 调用 writeToDatabase 方法
         networkInfoRetriever.writeToDatabase(testNetworkInfo);

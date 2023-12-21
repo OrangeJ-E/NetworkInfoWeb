@@ -37,4 +37,5 @@ public class NetworkInfo {
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
+
 }
